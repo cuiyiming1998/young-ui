@@ -1,16 +1,18 @@
 import { defineConfig } from 'vite'
 import * as path from 'path'
-// import AutoImport from 'unplugin-auto-import'
+import DefineOptions from 'unplugin-vue-define-options/vite'
+import AutoImport from 'unplugin-auto-import/vite'
 import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
-    // AutoImport({
-    //   imports: ['vue'],
-    //   dts: 'src/auto-import.d.ts'
-    // })
+    DefineOptions(),
+    AutoImport({
+      imports: ['vue'],
+      dts: 'src/auto-import.d.ts'
+    })
   ],
   css: {
     preprocessorOptions: {
